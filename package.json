@@ -1,0 +1,22 @@
+{
+  "name": "docker-node-python",
+  "version": "1.0.0",
+  "description": "docker node python",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jxc454/docker-node-python.git"
+  },
+  "author": "jcc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jxc454/docker-node-python/issues"
+  },
+  "homepage": "https://github.com/jxc454/docker-node-python#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
