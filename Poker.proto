@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+package Poker;
+
+service Poker {
+  rpc GetOdds(Hands) returns (Odds) {}
+}
+
+enum Card {
+  2h = 1;
+  3h = 2;
+  4h = 3;
+  5h = 4;
+  6h = 5;
+  7h = 6;
+  8h = 7;
+  9h = 8;
+  Th = 9;
+  Jh = 10;
+  Qh = 11;
+  Kh = 12;
+  Ah = 13;
+  2s = 14;
+  3s = 15;
+  4s = 16;
+  5s = 17;
+  6s = 18;
+  7s = 19;
+  8s = 20;
+  9s = 21;
+  Ts = 22;
+  Js = 23;
+  Qs = 24;
+  Ks = 25;
+  As = 26;
+  2d = 27;
+  3d = 28;
+  4d = 29;
+  5d = 30;
+  6d = 31;
+  7d = 32;
+  8d = 33;
+  9d = 34;
+  Td = 35;
+  Jd = 36;
+  Qd = 37;
+  Kd = 38;
+  Ad = 39;
+  2c = 40;
+  3c = 41;
+  4c = 42;
+  5c = 43;
+  6c = 44;
+  7c = 45;
+  8c = 46;
+  9c = 47;
+  Tc = 48;
+  Jc = 49;
+  Qc = 50;
+  Kc = 51;
+  Ac = 52;
+}
+
+message HandHoldem {
+  Card card1 = 1;
+  Card card2 = 2;
+}
+
+message Hand5Card {
+  Card card1 = 1;
+  Card card2 = 2;
+  Card card3 = 3;
+  Card card4 = 4;
+  Card card5 = 5;
+}
+
+message Hand {
+  oneof Cards {
+    HandHoldem Hand = 1;
+    Hand5Card Hand = 2;
+  }
+}
+
+message Community {
+  repeated Card Cards = 1 [packed=true];
+}
+
+message HandOdds {
+  Hand Hand = 1;
+  float Percentage = 2;
+}
+
+message Odds {
+  repeated HandOdds = 1 [packed=true];
+  float Split = 2;
+}
